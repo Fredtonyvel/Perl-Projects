@@ -37,4 +37,61 @@ while (<INPUT>) {
 	}
 }
 close (INPUT);
+#Question 3
+print "=================================\n";
+open(INPUT, "<solar.txt");
+my $file = 1;
+while (<INPUT>) {
 
+
+	$sentence= $_ ;
+	@orbit=split(/ /, $sentence);
+	@word=split(/ /, $sentence);
+
+	if (@word[4] =~ /-\d+/){
+
+		print $file++;
+		print ": $_";
+	}
+
+}
+close(INPUT);
+print "=================================\n";
+
+#question 4
+open(INPUT, "<solar.txt");
+my $file = 1;
+while (<INPUT>) {
+
+$sentence= $_;
+$voyager="Voyager2";
+@data=split(/ /, $sentence);
+
+
+	if (@data[7] =~ /$voyager/){
+		print $file++;
+		print ": $_";
+
+}
+}
+close (INPUT);
+print "=================================\n";
+open(INPUT, "<solar.txt");
+my $file = 1;
+while (<INPUT>) {
+
+$sentence= $_;
+$time=86400;# total seconds in a day
+@data=split(/ /, $sentence);
+
+
+	
+foreach (@data [4]){
+	print $file++;
+	@data[4]=@data[4]*$time;
+	print ": @data";
+
+}
+
+}
+close (INPUT);
