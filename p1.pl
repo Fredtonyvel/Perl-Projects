@@ -4,14 +4,23 @@
 $target = "- -";
 open(INPUT, "<solar.txt");
 my $file = 1;
-
+# question 1
 while (<INPUT>) {
 
 	if (/$target/){
-		#print $file++;
-		#print ": $_";
+		print $file++;
+		print ": $_ ";
 
 	}
+	}
+
+close (INPUT);
+print "================================\n";
+# question 2 
+open(INPUT, "<solar.txt");
+my $file = 1;
+while (<INPUT>) {
+	
 	#$word ="II";
 	
 	$sentence= $_ ;
@@ -22,11 +31,9 @@ while (<INPUT>) {
 
 	if (@word[1] eq $roman[1])
 	{
-		@word[1] = " Print this word ";
+		@word[1] = "-";
 		print $file++;
 		print ": @word";
-		
-
 	}
 }
 close (INPUT);
