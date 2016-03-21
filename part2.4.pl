@@ -1,25 +1,3 @@
-#/usr/local/bin/perl
-use strict;
-use warnings;
-
-open(INPUT, "<electricity.txt");
-
-while (my @text=<INPUT>)
-{
-
-
-
-#$text=~s/\W/ /gi; # this line is to remve all non alphanumeric
-#my @text = $text;
-
-my @sorted =sort{uc ($a) cmp lc ($b)} @text;# both $a and $b are sorted lowercase
-
-print "@sorted\n"
-
-}
-
-close (INPUT);
-
 
 open(INPUT, "<electricity.txt");
 
@@ -39,9 +17,9 @@ while (my $sentence=<INPUT>) {
 	
 
 
-	#foreach my $str (sort keys %count) {
-   #printf "%-31s %s\n", $str, $count{$str};
-#}
+	foreach my $str (sort keys %count) {
+   printf "%-31s %s\n", $str, $count{$str};
+}
 
 }
 
