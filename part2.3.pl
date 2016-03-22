@@ -14,11 +14,13 @@ while (my $sentence=<INPUT>) {
 		$count{$str}++;
 	}
 	
+	}
 	foreach my $str (sort {$count{$a}<=>$count{$b} }keys %count) {
    		printf "%-31s %s\n", $str, $count{$str};
-}
 
-}
+		}
+
+
 
 sub process {# this function is to remove all "\n" (new line) character and long space
     my $sentence = shift;
