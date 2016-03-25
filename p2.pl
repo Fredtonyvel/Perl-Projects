@@ -6,7 +6,7 @@ open(INPUT, "<electricity.txt");
 while (<INPUT>)
 {
 
-s/[^a-zA-Z]/ /gi; # this line is to remve all non alphanumeric
+s/[^a-zA-Z]/ /gi; # this line is to remve all non alphabet
 
 @text = split(/ /, $_);
 
@@ -15,9 +15,8 @@ foreach (@text){
 	
 				
 				}
-
-}
 print "@sorted\n"
+}
 close (INPUT);
 
 
