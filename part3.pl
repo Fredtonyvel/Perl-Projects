@@ -1,24 +1,18 @@
 #/usr/local/bin/perl
 
 
-print "Type in integer to return 'word' of the integer \n";
+print "Type in integer to return 'word' of the integer \n";#ask user for some numbers
 
-#chomp (my $number=<STDIN>);
+chomp (my $number=<STDIN>);# reading in the numbers
 
-open(INPUT, "<part3.txt");
+open(INPUT, ">part3.txt");# open and write it out to a file
+print INPUT "$number";
+close(INPUT);# close it. 
 
-while ($digit=<INPUT>)
-{
 
-@digit= split (//,$digit);
-$digit = split (//, $digit);
+open(OUTPUT, ">part3out.txt");# open and write out the word of the digits
 
-#print $digit;
-}
-
-open(OUTPUT, ">part3out.txt");
-
-my %num =(
+my %num =(# using hash to identify digit and word
 	0=>"Zero",
 	1=>"One",
 	2=>"Two",
@@ -30,22 +24,26 @@ my %num =(
 	8=>"Eight",
 	9=>"Nine");
 
-my @k = keys %num;
-my @v = values %num;
+open(INPUT, "<part3.txt"); # read in the data from user typed 
 
-foreach my $str (@digit){
-	$digit=~ s/\d+/ /g;
+while (<INPUT>)# reading the INPUT file
+{
 
-if (@digit[$str]== '1'){
+@digit= split (//,$_); # spliting the data from the INPUT file into an array
+$size=@digit; # determind the size of the array
+	for ($i = 0 ; $i < $size; $i++){ # use For loop to re-assign  @digit to $ digit
+		$digit = @digit[$i];# assigning
+		#print $digit;
 
-		@digit[$str] = values %num;
-		print @digit[str]; 
-		
-	}
+		foreach ($digit) {# since  $digit contains all the data from @digit, use it to print out from the hash
+		#if ($digit eq $num{$digit}){
+			print "$num{$digit} "; #printing the values of the hash
+			print OUTPUT "$num{$digit} "# storing the values of the hash accoeding to the digit user typed
+									}
+								}
+
 
 
 }
-
-print OUTPUT "$digit";
-close(INPUT);
+close(INPUT); # always close the file for good practice. 
 close(OUTPUT);
