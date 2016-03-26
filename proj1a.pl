@@ -1,3 +1,6 @@
+#!/usr/bin/perl
+use warnings;
+
 open (FH, "<solar.txt");
 
 $command = <ARGV>;		#Command line arguments for user input
