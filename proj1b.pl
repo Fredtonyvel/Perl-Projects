@@ -6,11 +6,21 @@ if ($command == 1)
 {	
 	print "Part2: Instruction 1: \n\n";
 	print "File sorted alphabetically ignoring capitalization:\n";
-	while (<FH>)
+
+	my %hash;
+
+	while ($word = <FH>)
 	{
-		foreach $line (split /\s+/, $_)
+		$word =~ s/[^a-zA-Z]/ /g;		#removes all non-alphanumeric characters
+		
+		foreach $line (split /\s+/, $word)		#splits by removing all spaces between words
 		{
-			$line =~ s/[^a-z]/ /gi;
+			$hash{$line}++;				#increment hash count
+			#print "$line\n";
+		}
+
+		foreach $line (sort {lc($a) cmp lc($b)} keys %hash)		#sorts alphabetically regardless of case sensitivity
+		{
 			print "$line\n";
 		}
 	}
