@@ -1,22 +1,28 @@
-#/usr/local/bin/perl
-
+#!/usr/bin/perl
+#use warnings;
+ 
+# 1 : alphabetically (ignoring capitalization)
 
 open(INPUT, "<electricity.txt");
 
-while (<INPUT>)
-{
+my %count;# i had this line of code under while loop. Hence, it keeps give me trouble
 
-s/[^a-zA-Z]/ /gi; # this line is to remve all non alphabet
 
-@text = split(/ /, $_);
+while (my $sentence=<INPUT>) {
 
-foreach (@text){
-	@sorted =sort{lc ($a) cmp lc ($b)} @text;# both $a and $b are sorted lowercase
+	 
+	$sentence =~s/[^a-zA-Z]/ /g; # this line is to remve all non alphanumeric
 	
-				
-				}
-print "@sorted\n"
-}
+	my @sentence = split /\s/,$sentence;
+
+	foreach my $str (@sentence){
+		$count{$str}++;
+	}
+	
+							}
+
+	foreach my $str (sort {lc ($a) cmp lc ($b)} keys %count) { #uc ($a) cmp lc ($b)}
+   printf "%-31s %s\n", $str	}
+
+
 close (INPUT);
-
-
