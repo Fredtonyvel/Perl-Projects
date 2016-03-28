@@ -1,7 +1,7 @@
 #/usr/local/bin/perl
+print "question 1\n";
 
-
-$target = "- -";
+$target = "- -"; # looking for "- -" in the all the fields
 open(INPUT, "<solar.txt");
 my $file = 1;
 # question 1
@@ -16,7 +16,7 @@ while (<INPUT>) {
 
 close (INPUT);
 print "================================\n";
-# question 2 
+print "question 2\n"; 
 open(INPUT, "<solar.txt");
 my $file = 1;
 while (<INPUT>) {
@@ -24,20 +24,20 @@ while (<INPUT>) {
 	#$word ="II";
 	
 	$sentence= $_ ;
-	@roman=split(/ /, $sentence);
-	@word=split(/ /, $sentence);
+	@roman=split(/ /, $sentence);# split the all the fields in to individual array
+	@word=split(/ /, $sentence);# same as above
 	#$word =s/word[1]/print this word/g;
 	#print $roman[1];
 
-	if (@word[1] eq $roman[1])
+	if (@word[1] eq $roman[1])# compare with each other, which is the same
 	{
-		@word[1] = "-";
+		@word[1] = "-";# replace the second field with "-"
 		print $file++;
 		print ": @word";
 	}
 }
 close (INPUT);
-#Question 3
+print "Question 3\n";
 print "=================================\n";
 open(INPUT, "<solar.txt");
 my $file = 1;
@@ -45,10 +45,10 @@ while (<INPUT>) {
 
 
 	$sentence= $_ ;
-	@orbit=split(/ /, $sentence);
-	@word=split(/ /, $sentence);
+	
+	@word=split(/ /, $sentence);# split the all the fields in to individual array
 
-	if (@word[4] =~ /-\d+/){
+	if (@word[4] =~ /-\d+/){# use the matching function to bind with the 5th field
 
 		print $file++;
 		print ": $_";
@@ -58,17 +58,17 @@ while (<INPUT>) {
 close(INPUT);
 print "=================================\n";
 
-#question 4
+print "question 4\n"
 open(INPUT, "<solar.txt");
 my $file = 1;
 while (<INPUT>) {
 
 $sentence= $_;
-$voyager="Voyager2";
-@data=split(/ /, $sentence);
+$voyager="Voyager2";# assigning a target to look for
+@data=split(/ /, $sentence);# split the all the fields in to individual array
 
 
-	if (@data[7] =~ /$voyager/){
+	if (@data[7] =~ /$voyager/){ #look for the target in the array 7th element, aka field 8.
 		print $file++;
 		print ": $_";
 
@@ -76,19 +76,21 @@ $voyager="Voyager2";
 }
 close (INPUT);
 print "=================================\n";
+
+print "Question 5\n";
 open(INPUT, "<solar.txt");
 my $file = 1;
 while (<INPUT>) {
 
 $sentence= $_;
 $time=86400;# total seconds in a day
-@data=split(/ /, $sentence);
+@data=split(/ /, $sentence);# split the all the fields in to individual array
 
 
 	
 foreach (@data [4]){
 	print $file++;
-	@data[4]=@data[4]*$time;
+	@data[4]=@data[4]*$time;#converting day in decimal to seconds
 	print ": @data";
 
 }
