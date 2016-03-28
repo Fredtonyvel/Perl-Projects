@@ -1,4 +1,7 @@
 #/usr/local/bin/perl
+
+#Code from : GARY TSAI
+
 print "question 1\n";
 
 $target = "- -"; # looking for "- -" in the all the fields
