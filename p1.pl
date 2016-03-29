@@ -61,7 +61,7 @@ while (<INPUT>) {
 close(INPUT);
 print "=================================\n";
 
-print "question 4\n"
+print "question 4\n";
 open(INPUT, "<solar.txt");
 my $file = 1;
 while (<INPUT>) {
